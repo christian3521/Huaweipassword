@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visualizador de senha Huawei</title>
+  <meta name="description" content="Mostra a senha guardada em strings $2...$ de arquivos de configuração de roteadores Huawei. Tudo roda no navegador.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <h1>Visualizador de senha Huawei</h1>
+    <p class="lead">Cole o texto que começa com <code>$2</code> e termina com <code>$</code>, como aparece no arquivo de configuração do roteador. A senha é decifrada aqui no navegador e nada é enviado para fora.</p>
+
+    <noscript><p class="notice">Esta página precisa de JavaScript para funcionar.</p></noscript>
+
+    <label for="input">Texto cifrado <span class="hint">(um por linha)</span></label>
+    <textarea id="input" rows="3" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="$2…$"></textarea>
+    <div class="actions">
+      <button type="button" id="example" class="link">Testar com um exemplo</button>
+      <button type="button" id="clear" class="link">Limpar</button>
+    </div>
+
+    <section aria-labelledby="result-title">
+      <div class="result-head">
+        <h2 id="result-title">Senha</h2>
+        <label class="check"><input type="checkbox" id="split"> Separar caracteres</label>
+      </div>
+      <div id="results" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Baseado em <a href="https://github.com/andreluis034/huawei-utility-page">huawei-utility-page</a>, de Fayaru. Licença GPL-3.0. Inclui <a href="https://github.com/brix/crypto-js">crypto-js</a> (MIT).</p>
+  </footer>
+
+  <script src="vendor/crypto-js-aes.min.js"></script>
+  <script src="js/huawei.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
